@@ -1,0 +1,265 @@
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --dark: #1e1b4b;
+  --text: #334155;
+  --border: #e2e8f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 16px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: var(--text);
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  padding: 32px 28px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(30, 27, 75, 0.25);
+}
+
+h1 {
+  color: var(--dark);
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+/* ---------- Theme toggle and hint ---------- */
+.theme-toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.hint {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* ---------- Add task form ---------- */
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.task-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.task-form button {
+  padding: 12px 22px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.task-form button:hover {
+  background: var(--primary-dark);
+}
+
+/* ---------- Filters ---------- */
+.filters {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.filter {
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.filter:hover {
+  border-color: var(--primary);
+}
+
+.filter.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* ---------- Task list ---------- */
+.task-list {
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.task input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.task span {
+  flex: 1;
+  word-break: break-word;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.delete {
+  border: none;
+  background: none;
+  color: #94a3b8;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.delete:hover {
+  color: #ef4444;
+}
+
+.empty {
+  text-align: center;
+  padding: 24px 0;
+  color: #94a3b8;
+}
+
+/* ---------- Edit box ---------- */
+.edit-input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.edit-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  font-size: 0.9rem;
+}
+
+#clear-completed {
+  border: none;
+  background: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#clear-completed:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Dark mode ---------- */
+body.dark {
+  background: linear-gradient(135deg, #0f172a, #1e1b4b);
+  color: #cbd5e1;
+}
+
+body.dark .app {
+  background: #1e293b;
+}
+
+body.dark h1 {
+  color: #fff;
+}
+
+body.dark .task-form input,
+body.dark .edit-input {
+  background: #0f172a;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+body.dark .filter {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+body.dark .filter.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+body.dark .task {
+  border-bottom-color: #334155;
+}
+
+body.dark .task.completed span {
+  color: #64748b;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 480px) {
+  body {
+    padding: 24px 12px;
+  }
+
+  .app {
+    padding: 24px 18px;
+  }
+}
